@@ -214,6 +214,7 @@
             <ul>
                 <li><a href="/CMS/Contracts">Contracts</a></li>
                 <li><a href="/CMS/Users">Users</a></li>
+                <li><a href="/CMS/Services">Services</a></li>
                 <li><a href="/CMS/TechRequests">Tech-Requests</a></li>
                 <li><a href="/CMS/PayRequests">Pay-Requests</a></li>
                 <li><a href="/CMS/FormaRequests">Forma-Requests</a></li>

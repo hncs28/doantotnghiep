@@ -23,8 +23,8 @@ class CMSContractController extends Controller
     }
 
     public function create() {
-            $services = DB::table('services')->select('*')->get();
-            return view('/CMS/Contracts/Contracts_create', compact('services'));
+            $contracts = DB::table('contracts')->select('*')->get();
+            return view('/CMS/Contracts/Contracts_create', compact('contracts'));
     }
     public function store(Request $request)
     {   

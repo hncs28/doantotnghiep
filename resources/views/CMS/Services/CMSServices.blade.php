@@ -4,7 +4,7 @@
     <!-- Font Awesome for icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link href="{{ asset('../../../css/app.css') }}" rel="stylesheet">
-    <title> CMS User </title>
+    <title> Services CMS Page </title>
     <style>
         * {
             margin: 0;
@@ -225,34 +225,30 @@
         </form>
     </nav>
     <div class="container">
-        <div class="page-header">Users List</div>
+        <div class="page-header">Services List</div>
 
         <table>
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                    <th>Address</th>
-                    <td>Phone</td>
+                    <th>Price</th>
+                    <th>Bandwidth</th>
                     <th>Tool</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($users as $user)
+                @foreach($services as $service)
                     <tr>
-                        <td>{{$user->userID}}</td>
-                        <td>{{$user->name}}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>{{ $user->password }}</td>
-                        <td>{{ $user->userAddress }}</td>
-                        <td>{{ $user->userPhone }}</td>
+                        <td>{{$service->serviceID}}</td>
+                        <td>{{$service->serviceName}}</td>
+                        <td>{{$service->servicePrice }} VND/month</td>
+                        <td>{{$service->bandwidth }} mbps</td>
                         <td>
-                            <a href="/CMS/Users/edit/{{$user->userID}}">
+                            <a href="/CMS/Services/edit/{{$service->serviceID}}">
                                 <button type="button" class="btn btn-edit">Edit</button>
                             </a>
-                            <form method="POST" action="/CMS/Users/destroy/{{$user->userID}}"
+                            <form method="POST" action="/CMS/Services/destroy/{{$service->serviceID}}"
                                 onsubmit="return ConfirmDelete(this)" style="display: inline-block;">
                                 @method('DELETE')
                                 @csrf
@@ -264,6 +260,6 @@
             </tbody>
         </table>
 
-        <a href="/CMS/Users/create" class="btn-add">Add New User</a>
+        <a href="/CMS/Services/create" class="btn-add">Add New Service</a>
     </div>
 </body>

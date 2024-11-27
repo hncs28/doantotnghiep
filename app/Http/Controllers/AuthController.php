@@ -58,6 +58,7 @@ class AuthController extends Controller
         $user->userPhone = $request->input('userPhone');
         $user->userAddress = $request->input('address');
         $user->password = Hash::make($request->input('password'));
+        $user->Role = 'users';
         $user->save();
         \Log::info('store success', ['data' => $user]);
         return view('auth/login');

@@ -15,7 +15,7 @@
         <nav class="bg-blue-800 text-white w-64 space-y-6 py-7 px-2">
             <div class="flex items-center space-x-4 px-4">
                 <i class="fas fa-chart-line text-2xl"></i>
-                <span class="text-2xl font-extrabold">Dashboard</span>
+                <span class="text-2xl font-extrabold">HiFPT</span>
             </div>
             <ul class="space-y-2">
                 <li>
@@ -66,7 +66,7 @@
 
         <!-- Main Content -->
         <div class="flex-1 p-10 overflow-hidden overflow-y-auto">
-            <h2 class="text-3xl font-bold mb-6 text-blue-900">Dashboard Overview</h2>
+            <h2 class="text-3xl font-bold mb-6 text-blue-900">Customer Overview</h2>
 
             <!-- Info Boxes -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

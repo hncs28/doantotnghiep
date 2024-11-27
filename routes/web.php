@@ -3,6 +3,7 @@
 use App\Http\Controllers\CMS\CMSContractController;
 use App\Http\Controllers\CMS\CMSRequestController;
 use App\Http\Controllers\CMS\CMSUsersController;
+use App\Http\Controllers\CMS\CMSServicesController;
 use App\Http\Controllers\MqttController;
 use App\Http\Controllers\StripeController;
 use Illuminate\Support\Facades\Route;
@@ -12,7 +13,7 @@ use App\Http\Controllers\ContractController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\PayController;
-
+use App\Http\Controllers\CMS\CMSSupportController;
 Route::get('/', function () {
     return view('trangchu');
 })->name('trangchu');
@@ -70,3 +71,21 @@ Route::get('/CMS/PayRequests',[CMSRequestController::class,'getpay'])->name('CMS
 Route::post('CMS/PayRequests/update/{requestID}',[CMSRequestController::class,'approvepay'])->name('approvepay');
 Route::get('/CMS/FormaRequests',[CMSRequestController::class,'getforma'])->name('CMSFormaRequests');
 Route::post('CMS/FormaRequests/update/{requestID}',[CMSRequestController::class,'approveforma'])->name('approveforma');
+
+#CMSServices
+Route::get('CMS/Services',[CMSServicesController::class,'index'])->name('CMSServices');
+Route::get('CMS/Services/edit/{serviceID}', [CMSServicesController::class,'edit']);
+Route::get('/CMS/Services/create', [CMSServicesController::class,'create']);
+Route::post('/CMS/Services/store', [CMSServicesController::class,'store']);
+Route::get('/CMS/Services/{serviceID}', [CMSServicesController::class,'show']);
+Route::DELETE('/CMS/Services/destroy/{serviceID}', [CMSServicesController::class,'destroy']);
+Route::patch('CMS/Services/update/{serviceID}',[CMSServicesController::class,'update']);
+
+#CMSSupports
+Route::get('CMS/Supports',[CMSSupportController::class,'index']);
+Route::get('CMS/Supports/edit/{suportID}', [CMSSupportController::class,'edit']);
+Route::get('/CMS/Supports/create', [CMSSupportController::class,'create']);
+Route::post('/CMS/Supports/store', [CMSSupportController::class,'store']);
+Route::get('/CMS/Supports/{suportID}', [CMSSupportController::class,'show']);
+Route::DELETE('/CMS/Supports/destroy/{suportID}', [CMSSupportController::class,'destroy']);
+Route::patch('CMS/Services/Supports/{suportID}',[CMSSupportController::class,'update']);

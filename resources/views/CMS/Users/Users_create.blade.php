@@ -151,8 +151,8 @@
         <input type="text" name="name" placeholder="Enter name" class="input" required>
         <input type="text" name="email" placeholder="Enter email" class="input" required>
         <input type="text" name="password" class="input" placeholder="Enter password" required>
-        <input type="text" name="userAddress" class="input" placeholder="Enter Address" required>
-        <input type="text" name="userPhone" class="input" placeholder="Enter Phone" required>
+        <input type="text" name="userAddress" class="input" placeholder="Enter Address" >
+        <input type="text" name="userPhone" class="input" placeholder="Enter Phone">
         <button type="submit" class="button-submit">Submit</button>
         <a class="button-back" href="/CMS/Users/">Go to Homepage</a>
     </form>
