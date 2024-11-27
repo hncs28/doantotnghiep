@@ -10,18 +10,18 @@ class CMSSupportDetailController extends Controller
 {
     public function index()
     {
-        $supports = DB::table('supports')->get();
-        return view('CMS/Supports/CMSSupports', compact('supports'));
+        $supportdetail = DB::table('supportdetail')->get();
+        return view('CMS/Supportdetail/CMSSupportdetail', compact('supportdetail'));
     }
-    public function edit($contractID)
+    public function edit($detailID)
     {
-        $contract = supports::findOrFail($contractID);
-        return view('/CMS/Supports/Supports_update', compact('contract'));
+        $supportdetail = supportdetail::findOrFail($detailID);
+        return view('/CMS/Supportdetail/Supportdetail_update', compact('supportdetail'));
     }
 
     public function create() {
-            $supports = DB::table('supports')->select('*')->get();
-            return view('/CMS/Supports/Supports_create', compact('supports'));
+            $supportdetail = DB::table('supportdetail')->select('*')->get();
+            return view('/CMS/Supportdetail/Supportdetail_create', compact('supportdetail'));
     }
     public function store(Request $request)
     {   

@@ -30,7 +30,7 @@ class CMSUsersController extends Controller
         $user->userAddress = $request->userAddress;
         $user->userPhone = $request->userPhone;
         $user->password = Hash::make($request->input('password'));
-        $user->Role = 'user';
+        $user->Role = $request->Role;
         $user->save();
         return redirect()->action([CMSUsersController::class,'getusers']);
     }
