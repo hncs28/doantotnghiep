@@ -38,6 +38,9 @@ class AuthController extends Controller
 
                 \Log::info('Login successful');
                 return redirect()->route('CMSContract');
+            } else {
+                $request->session()->regenerate();
+                return redirect()->route('CMSTechRequest');
             }
         }
 
