@@ -4,7 +4,7 @@
     <!-- Font Awesome for icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link href="{{ asset('../../../css/app.css') }}" rel="stylesheet">
-    <title> Activites CMS Page </title>
+    <title> Services CMS Page </title>
     <style>
         * {
             margin: 0;
@@ -224,26 +224,28 @@
         </form>
     </nav>
     <div class="container">
-        <div class="page-header">Supports List</div>
+        <div class="page-header">Detail List</div>
 
         <table>
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Support Name</th>
                     <th>Tool</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($supports as $support)
+                @foreach($supportdetail as $detail)
                     <tr>
-                        <td>{{$support->supportID}}</td>
-                        <td>{{$support->supportName}}</td>
+                        <td>{{$detail->detailID}}</td>
+                        <td>{{$detail->detailName}}</td>
+                        <td>{{$detail->supportName }}</td>
                         <td>
-                            <a href="/CMS/Supports/edit/{{$support->supportID}}">
+                            <a href="/CMS/Supportdetail/edit/{{$detail->detailID}}">
                                 <button type="button" class="btn btn-edit">Edit</button>
                             </a>
-                            <form method="POST" action="/CMS/Supports/destroy/{{$support->supportID}}"
+                            <form method="POST" action="/CMS/Supportdetail/destroy/{{$detail->detailID}}"
                                 onsubmit="return ConfirmDelete(this)" style="display: inline-block;">
                                 @method('DELETE')
                                 @csrf
@@ -255,6 +257,6 @@
             </tbody>
         </table>
 
-        <a href="/CMS/Supports/create" class="btn-add">Add New Contract</a>
+        <a href="/CMS/Supportdetail/create" class="btn-add">Add New Detail</a>
     </div>
 </body>

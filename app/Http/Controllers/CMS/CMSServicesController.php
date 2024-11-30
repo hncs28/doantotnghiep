@@ -49,9 +49,9 @@ class CMSServicesController extends Controller
     
         return redirect()->action([CMSServicesController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }
-    public function update(Request $request, $contractID)
+    public function update(Request $request, $serviceID)
     {
-        $service = services::find($contractID);
+        $service = services::find($serviceID);
         $service->serviceID = $request->serviceID; 
         $service->serviceName = $request->serviceName;
         $service->servicePrice = $request->servicePrice;

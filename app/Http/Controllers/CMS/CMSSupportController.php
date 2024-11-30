@@ -48,9 +48,9 @@ class CMSSupportController extends Controller
     
         return redirect()->action([CMSSupportController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }
-    public function update(Request $request, $contractID)
+    public function update(Request $request, $supportID)
     {
-        $contract = supports::find($contractID);
+        $contract = supports::find($supportID);
         $contract->contractID = $request->contractID; 
         $contract->userID = $request->userID;
         $contract->serviceID = $request->serviceID;

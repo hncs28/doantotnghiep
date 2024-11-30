@@ -4,7 +4,7 @@ use App\Http\Controllers\CMS\CMSContractController;
 use App\Http\Controllers\CMS\CMSRequestController;
 use App\Http\Controllers\CMS\CMSUsersController;
 use App\Http\Controllers\CMS\CMSServicesController;
-use App\Http\Controllers\MqttController;
+use App\Http\Controllers\CMS\CMSSupportDetailController;
 use App\Http\Controllers\StripeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -88,4 +88,13 @@ Route::get('/CMS/Supports/create', [CMSSupportController::class,'create']);
 Route::post('/CMS/Supports/store', [CMSSupportController::class,'store']);
 Route::get('/CMS/Supports/{suportID}', [CMSSupportController::class,'show']);
 Route::DELETE('/CMS/Supports/destroy/{suportID}', [CMSSupportController::class,'destroy']);
-Route::patch('CMS/Services/Supports/{suportID}',[CMSSupportController::class,'update']);
+Route::patch('CMS/Supports/update/{suportID}',[CMSSupportController::class,'update']);
+
+#CMSDetail
+Route::get('CMS/Supportdetail',[CMSSupportDetailController::class,'index']);
+Route::get('CMS/Supportdetail/edit/{detailID}', [CMSSupportDetailController::class,'edit']);
+Route::get('/CMS/Supportdetail/create', [CMSSupportDetailController::class,'create']);
+Route::post('/CMS/Supportdetail/store', [CMSSupportDetailController::class,'store']);
+Route::get('/CMS/Supportdetail/{detailID}', [CMSSupportDetailController::class,'show']);
+Route::DELETE('/CMS/Supportdetail/destroy/{detailID}', [CMSSupportDetailController::class,'destroy']);
+Route::patch('CMS/Supportdetail/update/{detailID}',[CMSSupportDetailController::class,'update']);

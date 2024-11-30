@@ -143,23 +143,15 @@
 </style>
 
 <div class="container">
-    <form class="form" method="POST" action="/CMS/Users/store">
+    <form class="form" method="POST" action="/CMS/Services/store">
         @csrf
         <div class="title">
-            <p>Form add new user</p>
+            <p>Form add new service</p>
         </div>
         <input type="text" name="name" placeholder="Enter name" class="input" required>
-        <input type="text" name="email" placeholder="Enter email" class="input" required>
-        <input type="text" name="password" class="input" placeholder="Enter password" required>
-        <input type="text" name="userAddress" class="input" placeholder="Enter Address" >
-        <input type="text" name="userPhone" class="input" placeholder="Enter Phone">
-        <label for="Role">Select Role</label>
-        <select class="input" id="Role" name="Role">
-                <option value="user">User</option>
-                <option value="admin">Admin</option>
-                <option value="cs">Customer Service</option>
-        </select>
+        <input type="text" name="price" placeholder="Enter price" class="input" required>
+        <input type="text" name="bandwidth" class="input" placeholder="Enter bandwidth" required>
         <button type="submit" class="button-submit">Submit</button>
-        <a class="button-back" href="/CMS/Users/">Go to Homepage</a>
+        <a class="button-back" href="/CMS/Services/">Go to Homepage</a>
     </form>
 </div>
