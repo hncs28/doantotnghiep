@@ -27,7 +27,13 @@ class CMSUsersController extends Controller
     }
     public function store(Request $request)
     {
-        
+        $request->validate([
+            'email' => 'required|email|unique:users,email',
+            'name' => 'required',
+            'userAddress' => 'required',
+            'userPhone' => 'required',
+            'Role' => 'required',
+        ]);
         $user = new User;
         $user->name = $request->name; 
         $user->email = $request->email;
