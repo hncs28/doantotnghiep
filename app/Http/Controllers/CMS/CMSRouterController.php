@@ -12,17 +12,17 @@ class CMSRouterController extends Controller
     {
         $routers = DB::table('routers')
             ->select('*')->get();
-        return view('CMS/Contracts/CMSContracts', compact('routers'));
+        return view('CMS/Routers/CMSRouters', compact('routers'));
     }
     public function edit($routerID)
     {
         $routers = routers::findOrFail($routerID);
-        return view('/CMS/Contracts/Contracts_update', compact('routers'));
+        return view('/CMS/Routers/Routers_update', compact('routers'));
     }
 
     public function create() {
             $routers = DB::table('routers')->select('*')->get();
-            return view('/CMS/Contracts/Contracts_create', compact('routers'));
+            return view('/CMS/Routers/Routers_create', compact('routers'));
     }
     public function store(Request $request)
     {   
@@ -30,10 +30,9 @@ class CMSRouterController extends Controller
         // $service = DB::table('services')->where('serviceName','=',$test)->first();
 
         $routers = new routers;
-        $routers->routerID = $request->routerID; 
-        $routers->routerName = $request->userID;
-        $routers->serviceID = $request->serviceID;
-        $routers->validateuntil = $request->validateuntil;
+        $routers->routerName = $request->routerName;
+        $routers->contractID = $request->contractID;
+        $routers->routerState = "1";
         $routers->save();
         return redirect()->action([CMSRouterController::class,'index']);
     }
@@ -42,21 +41,20 @@ class CMSRouterController extends Controller
     {
         $routers = routers::where('contractID', '=',$routerID)->select('*')->first();
         
-        return view('/CMS/contracts/contracts_detail', compact('routers'));
+        return view('/CMS/Routers/Routers_detail', compact('routers'));
     }
     public function destroy($routerID)
     {
-        $contract = routers::where('contractID', '=', $routerID)->delete();
+        $contract = routers::where('routerID', '=', $routerID)->delete();
     
         return redirect()->action([CMSRouterController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }
     public function update(Request $request, $routerID)
     {
         $routers = routers::find($routerID);
-        $routers->contractID = $request->contractID; 
-        $routers->userID = $request->userID;
-        $routers->serviceID = $request->serviceID;
-        $routers->validateuntil = $request->validateuntil;
+        $routers->routerName = $request->routerName;
+        $routers->contractID = $request->contractID;
+        $routers->routerState = "1";
         $routers->save();
         return redirect()->action([CMSRouterController::class,'index']);
     }

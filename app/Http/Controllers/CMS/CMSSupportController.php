@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\CMS;
 use DB;
-use app\Models\supports;
+use App\Models\supports;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -26,13 +26,10 @@ class CMSSupportController extends Controller
     public function store(Request $request)
     {   
 
-        $contract = new supports;
-        $contract->contractID = $request->contractID; 
-        $contract->userID = $request->userID;
-        $contract->serviceID = $request->serviceID;
-        $contract->validateuntil = $request->validateuntil;
-        $contract->paymentstate = "0";
-        $contract->save();
+        $support = new supports;
+        $support->supportID = $request->supportID; 
+        $support->supportName = $request->supportName;
+        $support->save();
         return redirect()->action([CMSSupportController::class,'index']);
     }
 
@@ -44,18 +41,16 @@ class CMSSupportController extends Controller
     }
     public function destroy($supportID)
     {
-        $contract = supports::where('contractID', '=', $supportID)->delete();
+        $contract = supports::where('supportID', '=', $supportID)->delete();
     
         return redirect()->action([CMSSupportController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }
     public function update(Request $request, $supportID)
     {
-        $contract = supports::find($supportID);
-        $contract->contractID = $request->contractID; 
-        $contract->userID = $request->userID;
-        $contract->serviceID = $request->serviceID;
-        $contract->validateuntil = $request->validateuntil;
-        $contract->save();
+        $support = supports::find($supportID);
+        $support->supportID = $request->supportID; 
+        $support->supportName = $request->supportName;
+        $support->save();
         return redirect()->action([CMSContractController::class,'index']);
     }
 }

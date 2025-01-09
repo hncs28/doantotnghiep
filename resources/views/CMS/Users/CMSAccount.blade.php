@@ -4,7 +4,7 @@
     <!-- Font Awesome for icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link href="{{ asset('../../../css/app.css') }}" rel="stylesheet">
-    <title> Activites CMS Page </title>
+    <title> CMS Account </title>
     <style>
         * {
             margin: 0;
@@ -218,6 +218,7 @@
             <li><a href="/CMS/Supports">Supports</a></li>
             <li><a href="/CMS/Supportdetail">Support Detail</a></li>
             <li><a href="/CMS/Routers">Routers</a></li>
+            <li><a href="/CMS/Accounts">Accounts</a></li>
         </ul>
         <form action="{{ route('logout') }}" method="POST">
             @csrf
@@ -225,26 +226,30 @@
         </form>
     </nav>
     <div class="container">
-        <div class="page-header">Supports List</div>
+        <div class="page-header">Account List</div>
 
         <table>
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
                     <th>Tool</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($supports as $support)
+                @foreach($accounts as $account)
                     <tr>
-                        <td>{{$support->supportID}}</td>
-                        <td>{{$support->supportName}}</td>
+                        <td>{{$account->userID}}</td>
+                        <td>{{$account->name}}</td>
+                        <td>{{$account->email }}</td>
+                        <td>{{$account->Role }}</td>
                         <td>
-                            <a href="/CMS/Supports/edit/{{$support->supportID}}">
+                            <a href="/CMS/Users/edit/{{$account->userID}}">
                                 <button type="button" class="btn btn-edit">Edit</button>
                             </a>
-                            <form method="POST" action="/CMS/Supports/destroy/{{$support->supportID}}"
+                            <form method="POST" action="/CMS/Users/destroy/{{$account->userID}}"
                                 onsubmit="return ConfirmDelete(this)" style="display: inline-block;">
                                 @method('DELETE')
                                 @csrf
@@ -256,6 +261,6 @@
             </tbody>
         </table>
 
-        <a href="/CMS/Supports/create" class="btn-add">Add New Support</a>
+        <a href="/CMS/Users/create" class="btn-add">Add New User</a>
     </div>
 </body>

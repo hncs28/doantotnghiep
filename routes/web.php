@@ -5,6 +5,7 @@ use App\Http\Controllers\CMS\CMSRequestController;
 use App\Http\Controllers\CMS\CMSUsersController;
 use App\Http\Controllers\CMS\CMSServicesController;
 use App\Http\Controllers\CMS\CMSSupportDetailController;
+use App\Http\Controllers\CMS\CMSRouterController;
 use App\Http\Controllers\StripeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -54,7 +55,7 @@ Route::post('/CMS/Users/store', [CMSUsersController::class,'store']);
 Route::get('/CMS/Users/{userID}', [CMSUsersController::class,'show']);
 Route::DELETE('/CMS/Users/destroy/{userID}', [CMSUsersController::class,'destroy']);
 Route::patch('CMS/Users/update/{userID}',[CMSUsersController::class,'update']);
-
+Route::get("/CMS/Accounts",[CMSUsersController::class,'getaccount']);
 #CMSContract
 Route::get('/CMS/Contracts', [CMSContractController::class, 'index'])->name('CMSContract');
 Route::get('CMS/Contracts/edit/{contractID}', [CMSContractController::class,'edit']);
@@ -98,3 +99,13 @@ Route::post('/CMS/Supportdetail/store', [CMSSupportDetailController::class,'stor
 Route::get('/CMS/Supportdetail/{detailID}', [CMSSupportDetailController::class,'show']);
 Route::DELETE('/CMS/Supportdetail/destroy/{detailID}', [CMSSupportDetailController::class,'destroy']);
 Route::patch('CMS/Supportdetail/update/{detailID}',[CMSSupportDetailController::class,'update']);
+
+#CMSDetail
+Route::get('CMS/Routers',[CMSRouterController::class,'index']);
+Route::get('CMS/Routers/edit/{routerID}', [CMSRouterController::class,'edit']);
+Route::get('/CMS/Routers/create', [CMSRouterController::class,'create']);
+Route::post('/CMS/Routers/store', [CMSRouterController::class,'store']);
+Route::get('/CMS/Routers/{routerID}', [CMSRouterController::class,'show']);
+Route::DELETE('/CMS/Routers/destroy/{routerID}', [CMSRouterController::class,'destroy']);
+Route::patch('CMS/Routers/update/{routerID}',[CMSRouterController::class,'update']);
+

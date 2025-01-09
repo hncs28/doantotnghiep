@@ -12,7 +12,7 @@
         <nav class="bg-blue-800 text-white w-64 space-y-6 py-7 px-2">
             <div class="flex items-center space-x-4 px-4">
                 <i class="fas fa-chart-line text-2xl"></i>
-                <span class="text-2xl font-extrabold">HiFPT</span>
+                <span class="text-2xl font-extrabold">ThreeFPTT</span>
             </div>
             <ul class="space-y-2">
                 <li>

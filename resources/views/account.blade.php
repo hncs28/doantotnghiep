@@ -15,7 +15,7 @@
         <nav class="bg-blue-800 text-white w-64 space-y-6 py-7 px-2">
             <div class="flex items-center space-x-4 px-4">
                 <i class="fas fa-chart-line text-2xl"></i>
-                <span class="text-2xl font-extrabold">HiFPT</span>
+                <span class="text-2xl font-extrabold">ThreeFPTT</span>
             </div>
             <ul class="space-y-2">
                 <li>
@@ -122,7 +122,7 @@
                             </div>
 
                             <div class="mb-4">
-                                <p class="text-gray-600">Model: <span class="font-semibold">SuperFast 5000</span></p>
+                                <p class="text-gray-600">Model: <span class="font-semibold">{{ $contract->routerName }}</span></p>
                             </div>
 
                             <div class="mb-4">
@@ -150,7 +150,7 @@
                             </div>
 
                             <div class="mb-4">
-                                <p class="text-gray-600">MAC Address: <span class="font-semibold">00:1A:2B:3C:4D:5E</span></p>
+                                <p class="text-gray-600">MAC Address: <span class="font-semibold">{{ $contract->MACaddress }}</span></p>
                             </div>
 
                             <div class="mb-4">

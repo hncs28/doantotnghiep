@@ -14,18 +14,23 @@
         <nav class="bg-blue-800 text-white w-64 space-y-6 py-7 px-2">
             <div class="flex items-center space-x-4 px-4">
                 <i class="fas fa-chart-line text-2xl"></i>
-                <span class="text-2xl font-extrabold">HiFPT</span>
+                <span class="text-2xl font-extrabold">ThreeFPTT</span>
             </div>
             <ul class="space-y-2">
                 <li>
-                    <a href="/account" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700">
+                    <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700">
                         <i class="fas fa-home mr-2"></i>Home
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('getpayment') }}"
+                    <a href="/payment"
                         class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700">
                         <i class="fas fa-chart-bar mr-2"></i>Payment
+                    </a>
+                </li>
+                <li>
+                    <a href="/payment-history" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700">
+                        <i class="fas fa-chart-bar mr-2"></i>Payment History
                     </a>
                 </li>
                 <li>
@@ -49,10 +54,11 @@
                 <li>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700">
-                            <button type="submit" class="fas fa-cog mr-2">Logout</button>
+                        <button type="submit"
+                            class="w-full text-left block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700">
+                            <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                        </button>
                     </form>
-                    </a>
                 </li>
             </ul>
         </nav>

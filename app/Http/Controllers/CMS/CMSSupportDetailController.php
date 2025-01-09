@@ -24,7 +24,8 @@ class CMSSupportDetailController extends Controller
 
     public function create() {
             $supportdetail = DB::table('supportdetail')->select('*')->get();
-            return view('/CMS/Supportdetail/Supportdetail_create', compact('supportdetail'));
+            $support = DB::table('supports')->select('*')->get();
+            return view('/CMS/Supportdetail/Supportdetail_create', compact('supportdetail','support'));
     }
     public function store(Request $request)
     {   
@@ -39,23 +40,22 @@ class CMSSupportDetailController extends Controller
 
     public function show($detailID)
     {
-        $contract = supportdetail::where('contractID', '=',$detailID)->select('*')->first();
+        $contract = supportdetail::where('detailID', '=',$detailID)->select('*')->first();
         
         return view('/CMS/supports/supports_detail', compact('contract'));
     }
     public function destroy($detailID)
     {
-        $contract = supportdetail::where('contractID', '=', $detailID)->delete();
+        $contract = supportdetail::where('detailID', '=', $detailID)->delete();
     
         return redirect()->action([CMSSupportDetailController::class,'index'])->with('success','Dữ liệu xóa thành công.');
     }
-    public function update(Request $request, $contractID)
+    public function update(Request $request, $detailID)
     {
-        $supportdetail = supportdetail::find($contractID);
-        $supportdetail->contractID = $request->contractID; 
-        $supportdetail->userID = $request->userID;
-        $supportdetail->serviceID = $request->serviceID;
-        $supportdetail->validateuntil = $request->validateuntil;
+        $supportdetail = supportdetail::find($detailID);
+        $supportdetail->detailID = $request->detailID; 
+        $supportdetail->supportID = $request->supportID;
+        $supportdetail->detailName = $request->detailName;
         $supportdetail->save();
         return redirect()->action([CMSSupportDetailController::class,'index']);
     }

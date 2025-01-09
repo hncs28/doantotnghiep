@@ -217,6 +217,8 @@
             <li><a href="/CMS/Services">Services</a></li>
             <li><a href="/CMS/Supports">Supports</a></li>
             <li><a href="/CMS/Supportdetail">Support Detail</a></li>
+            <li><a href="/CMS/Routers">Routers</a></li>
+            <li><a href="/CMS/Accounts">Accounts</a></li>
         </ul>
         <form action="{{ route('logout') }}" method="POST">
             @csrf

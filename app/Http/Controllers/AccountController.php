@@ -24,9 +24,10 @@ class AccountController extends Controller
 
         $contracts = DB::table('contracts')
             ->join('services', 'contracts.serviceID', '=', 'services.serviceID') // Join with services table
-            ->join('users', 'contracts.userID', '=', 'users.userID') // Join with users table
+            ->join('users', 'contracts.userID', '=', 'users.userID')
+            ->join('routers','contracts.contractID','=','routers.contractID')
             ->where('contracts.userID', '=', $userid) // Filter by authenticated user
-            ->select('contracts.*', 'services.serviceName', 'services.servicePrice', 'services.bandwidth', 'users.name') // Select desired columns
+            ->select('contracts.*', 'services.serviceName', 'services.servicePrice', 'services.bandwidth', 'users.name','routers.routerName','routers.MACaddress') // Select desired columns
             ->get();
         return view('account', compact('contracts'));
     }

@@ -12,6 +12,10 @@ class CMSUsersController extends Controller
         $users = DB::table('users')->where('role','=','user')->get();
         return view('CMS/Users/CMSUsers',compact('users'));
     }
+    public function getaccount(){
+        $accounts = DB::table('users')->where('role','=','cs')->orWhere('role','=','admin')->get();
+        return view('CMS/Users/CMSAccount',compact('accounts'));
+    }
     public function edit($userID)
     {
         $user = User::findOrFail($userID);

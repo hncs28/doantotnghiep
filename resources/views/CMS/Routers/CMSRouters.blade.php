@@ -4,7 +4,7 @@
     <!-- Font Awesome for icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link href="{{ asset('../../../css/app.css') }}" rel="stylesheet">
-    <title> Services CMS Page </title>
+    <title> Routers CMS Page </title>
     <style>
         * {
             margin: 0;
@@ -218,6 +218,7 @@
             <li><a href="/CMS/Supports">Supports</a></li>
             <li><a href="/CMS/Supportdetail">Support Detail</a></li>
             <li><a href="/CMS/Routers">Routers</a></li>
+            <li><a href="/CMS/Accounts">Accounts</a></li>
         </ul>
         <form action="{{ route('logout') }}" method="POST">
             @csrf
@@ -232,23 +233,23 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Price</th>
-                    <th>Bandwidth</th>
+                    <th>ContractID</th>
+                    <th>State</th>
                     <th>Tool</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($services as $service)
+                @foreach($routers as $router)
                     <tr>
-                        <td>{{$service->serviceID}}</td>
-                        <td>{{$service->serviceName}}</td>
-                        <td>{{$service->servicePrice }}</td>
-                        <td>{{$service->bandwidth }}</td>
+                        <td>{{$router->routerID}}</td>
+                        <td>{{$router->routerName}}</td>
+                        <td>{{$router->contractID }}</td>
+                        <td>{{$router->routerState }}</td>
                         <td>
-                            <a href="/CMS/Services/edit/{{$service->serviceID}}">
+                            <a href="/CMS/Routers/edit/{{$router->routerID}}">
                                 <button type="button" class="btn btn-edit">Edit</button>
                             </a>
-                            <form method="POST" action="/CMS/Services/destroy/{{$service->serviceID}}"
+                            <form method="POST" action="/CMS/Routers/destroy/{{$router->routerID}}"
                                 onsubmit="return ConfirmDelete(this)" style="display: inline-block;">
                                 @method('DELETE')
                                 @csrf
@@ -260,6 +261,6 @@
             </tbody>
         </table>
 
-        <a href="/CMS/Services/create" class="btn-add">Add New Service</a>
+        <a href="/CMS/Routers/create" class="btn-add">Add New Router</a>
     </div>
 </body>
